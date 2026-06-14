@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0H0FZ1NRK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0H0FZ1NRK');
+    </script>
+    <title>Contact Hunter Foley | Cleveland Real Estate Agent</title>
+    <meta name="description" content="Get in touch with Hunter Foley for real estate buying, selling, and investing in Cleveland and surrounding communities.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="images/headshot.png" alt="Hunter Foley" class="logo-circle">
+                <div class="logo-text">
+                    <span class="name">HUNTER FOLEY</span>
+                    <span class="title">Luxury Real Estate</span>
+                </div>
+            </div>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="testimonials.html">Reviews</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTACT -->
+    <div class="page">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Ready to find your next home? Reach out today.</p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">Location</span>
+                    6814 Detroit Ave, Cleveland, OH 44102
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">Service Area</span>
+                    Cleveland & Surrounding Communities
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">Phone</span>
+                    <a href="tel:+13302576992">(330) 257-6992</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">Email</span>
+                    <a href="mailto:Hunterifoley@gmail.com">Hunterifoley@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">Hours</span>
+                    Monday – Friday: 9am – 6pm<br>
+                    Saturday: 10am – 4pm<br>
+                    Sunday: By Appointment
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Interest</label>
+                    <select id="subject" name="subject">
+                        <option value="">Select...</option>
+                        <option value="buying">Buying</option>
+                        <option value="selling">Selling</option>
+                        <option value="investing">Investing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>&copy; 2024 Hunter Foley | Luxury Real Estate</p>
+                <p>Berkshire Hathaway HomeServices Professional Realty</p>
+                <p>Licensed Real Estate Professional | Cleveland, Ohio</p>
+            </div>
+            <img src="images/bhhs-logo.png" alt="Berkshire Hathaway HomeServices Professional Realty" class="footer-logo">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
