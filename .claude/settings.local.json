@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git init *)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

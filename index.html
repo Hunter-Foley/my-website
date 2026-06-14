@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter Foley - Real Estate Agent | Cleveland OH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2d5a7b;
+            --accent: #c4a574;
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --text: #333;
+            --border: #e0e0e0;
+            --bhhs-navy: #1a3a52;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .name {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .logo-text .title {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bhhs-logo {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 5% 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #d4b896;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(196, 165, 116, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(196, 165, 116, 0.1);
+        }
+
+        /* SECTIONS */
+        .section {
+            display: none;
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* PROPERTIES GRID */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #c0c0c0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .property-info {
+            padding: 1.75rem;
+        }
+
+        .property-price {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .property-address {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .property-details {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* GALLERY SECTION */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #b0b0b0, #d0d0d0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.06);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* SERVICES SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CONTACT SECTION */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item-label {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .hunter-signature {
+            max-width: 300px;
+            margin-top: 3rem;
+        }
+
+        .hunter-signature img {
+            width: 100%;
+            height: auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(196, 165, 116, 0.1);
+        }
+
+        .form-submit {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 58, 82, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 5%;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav {
+                padding: 0.75rem 3%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                gap: 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='23' fill='%231a3a52' stroke='%23c4a574' stroke-width='2'/%3E%3Ctext x='25' y='30' font-size='20' font-weight='bold' text-anchor='middle' fill='%23c4a574'%3EBH%3C/text%3E%3C/svg%3E" class="bhhs-logo" alt="BHHS">
+                <div class="logo-text">
+                    <span class="name">Hunter Foley</span>
+                    <span class="title">Real Estate Agent</span>
+                </div>
+            </div>
+            <ul id="navMenu">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('services')">Services</a></li>
+                <li><a onclick="showSection('listings')">Listings</a></li>
+                <li><a onclick="showSection('testimonials')">Reviews</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Find Your Next Home</h1>
+                <div class="tagline">Real Estate Made Simple</div>
+                <p>Serving Cleveland and surrounding areas. First-time buyers, sellers, and investors welcome. Licensed realtor with a passion for helping you achieve your real estate goals.</p>
+                <div class="cta-buttons">
+                    <button class="cta-button" onclick="showSection('listings')">View Listings</button>
+                    <button class="cta-button secondary" onclick="showSection('contact')">Get In Touch</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Hunter Foley</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23e0e0e0' width='300' height='400'/%3E%3Ctext x='150' y='200' font-size='60' text-anchor='middle' fill='%23999'%3E📸%3C/text%3E%3C/svg%3E" alt="Hunter Foley">
+            </div>
+            <div class="about-text">
+                <h2>Real Estate Professional</h2>
+                <p>I'm Hunter Foley, a licensed real estate agent with Berkshire Hathaway HomeServices Professional Realty, serving Cleveland and the surrounding areas since 2023.</p>
+                <p>My unique background combines healthcare expertise (licensed RN) with real estate knowledge. I'm currently pursuing my credentials as a Certified Registered Nurse Anesthetist (CRNA) while building my real estate business — which means I understand hard work, dedication, and the importance of finding the right home for your needs.</p>
+                <p>Whether you're a first-time homebuyer, looking to sell, or exploring investment properties, I bring professionalism, market knowledge, and genuine care to every transaction.</p>
+                <div class="about-highlights">
+                    <div class="highlight-box">
+                        <strong>Licensed Since</strong>
+                        2023
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Service Area</strong>
+                        Cleveland & Beyond
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Background</strong>
+                        Healthcare + Real Estate
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Specialties</strong>
+                        First-Time Buyers, Sellers, Investors
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section">
+        <h2 class="section-title">How I Can Help</h2>
+        <p class="section-subtitle">Comprehensive real estate services tailored to your needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Home Buying</h3>
+                <p>First-time or returning buyer? I'll guide you through the entire process, from finding the perfect property to closing day.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>Home Selling</h3>
+                <p>Market your home effectively. I handle listing, showings, negotiations, and everything in between to get you the best deal.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Investment Property</h3>
+                <p>Looking to grow your portfolio? I help investors identify opportunities and navigate profitable transactions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Market Analysis</h3>
+                <p>Understand your property's value. Get detailed market insights and comparable sales analysis for informed decisions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>Expert Consultation</h3>
+                <p>Not sure where to start? Schedule a free consultation. I'll answer your questions and outline next steps.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Ongoing Support</h3>
+                <p>My relationship with clients doesn't end at closing. I'm here for future needs, referrals, and continued guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTINGS SECTION -->
+    <section id="listings" class="section">
+        <h2 class="section-title">Featured Listings</h2>
+        <p class="section-subtitle">Current properties available in the Cleveland area</p>
+        <div class="properties-grid">
+            <div class="property-card">
+                <div class="property-image">🏡</div>
+                <div class="property-info">
+                    <div class="property-price">$450,000</div>
+                    <div class="property-address">123 Oak Street, Cleveland</div>
+                    <div class="property-details">
+                        <span>🛏️ 4 Bed</span>
+                        <span>🚿 2.5 Bath</span>
+                        <span>📐 2,500 sqft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏠</div>
+                <div class="property-info">
+                    <div class="property-price">$325,000</div>
+                    <div class="property-address">456 Maple Avenue, Lakewood</div>
+                    <div class="property-details">
+                        <span>🛏️ 3 Bed</span>
+                        <span>🚿 2 Bath</span>
+                        <span>📐 1,800 sqft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏘️</div>
+                <div class="property-info">
+                    <div class="property-price">$625,000</div>
+                    <div class="property-address">789 Pine Road, Chagrin Falls</div>
+                    <div class="property-details">
+                        <span>🛏️ 5 Bed</span>
+                        <span>🚿 3.5 Bath</span>
+                        <span>📐 3,500 sqft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏡</div>
+                <div class="property-info">
+                    <div class="property-price">$275,000</div>
+                    <div class="property-address">321 Elm Court, Westlake</div>
+                    <div class="property-details">
+                        <span>🛏️ 3 Bed</span>
+                        <span>🚿 1.5 Bath</span>
+                        <span>📐 1,400 sqft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏠</div>
+                <div class="property-info">
+                    <div class="property-price">$550,000</div>
+                    <div class="property-address">654 Birch Lane, Rocky River</div>
+                    <div class="property-details">
+                        <span>🛏️ 4 Bed</span>
+                        <span>🚿 2.5 Bath</span>
+                        <span>📐 2,800 sqft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏘️</div>
+                <div class="property-info">
+                    <div class="property-price">$395,000</div>
+                    <div class="property-address">987 Cedar Drive, Shaker Heights</div>
+                    <div class="property-details">
+                        <span>🛏️ 4 Bed</span>
+                        <span>🚿 2 Bath</span>
+                        <span>📐 2,100 sqft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="section">
+        <h2 class="section-title">Client Reviews</h2>
+        <p class="section-subtitle">What clients say about working with Hunter</p>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Hunter was incredibly professional and patient throughout our home buying process. He really took time to understand what we needed."</p>
+                <div class="testimonial-author">Sarah & John Mitchell</div>
+                <div class="testimonial-role">First-Time Home Buyers</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"As an investor, I appreciated his market knowledge and ability to identify solid investment opportunities. Highly recommend."</p>
+                <div class="testimonial-author">Michael Chen</div>
+                <div class="testimonial-role">Real Estate Investor</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Sold our house faster than we expected and at a great price. Hunter's expertise made all the difference."</p>
+                <div class="testimonial-author">Emily Rodriguez</div>
+                <div class="testimonial-role">Seller</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"His background in healthcare made him trustworthy and detail-oriented. He went above and beyond to help us."</p>
+                <div class="testimonial-author">Jennifer Lee</div>
+                <div class="testimonial-role">Home Buyer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Have questions? Reach out today for a free consultation</p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Contact Hunter</h3>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">📍 Based In</span>
+                    Lakewood, OH
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">🌐 Service Area</span>
+                    Cleveland & Surrounding Cities
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">📞 Phone</span>
+                    <a href="tel:+12165550123">(216) 555-0123</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">✉️ Email</span>
+                    <a href="mailto:hunterifoley@gmail.com">hunterifoley@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-item-label">🕐 Hours</span>
+                    Monday - Friday: 9am - 6pm<br>
+                    Saturday: 10am - 4pm<br>
+                    Sunday: By Appointment
+                </div>
+
+                <div class="hunter-signature">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 80'%3E%3Ctext x='150' y='40' font-family='cursive' font-size='32' text-anchor='middle' fill='%231a3a52'%3EHunter Foley%3C/text%3E%3C/svg%3E" alt="Hunter Foley Signature">
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="subject">What brings you here?</label>
+                    <select id="subject" name="subject" style="width: 100%; padding: 0.85rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+                        <option value="">-- Select --</option>
+                        <option value="buying">I'm interested in buying</option>
+                        <option value="selling">I'm interested in selling</option>
+                        <option value="investing">I'm interested in investing</option>
+                        <option value="other">Other inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Hunter Foley | Real Estate Agent</p>
+        <p>Berkshire Hathaway HomeServices Professional Realty</p>
+        <p>Serving Cleveland and surrounding areas</p>
+    </footer>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('navMenu').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Hamburger menu
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            if (!nav.contains(event.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value || 'Not provided';
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            alert(`Thank you, ${name}! I've received your message and will be in touch soon at ${email}`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
