@@ -542,6 +542,32 @@ nav a.active::after {
     letter-spacing: 0;
 }
 
+/* SUBSECTIONS (e.g. Rentals: Available / Currently Unavailable) */
+.subsection-title {
+    font-size: 1.6rem;
+    color: var(--primary);
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.subsection-title:not(:first-of-type) {
+    margin-top: 5rem;
+}
+
+.no-listings-message {
+    width: 100%;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    font-size: 1.05rem;
+    padding: 1rem 0 2rem;
+}
+
 /* LISTING DETAIL PAGE */
 .back-link {
     display: inline-block;
