@@ -184,6 +184,17 @@ nav a.active::after {
     transform: translate(-50%, 0);
 }
 
+/* Invisible bridge so the dropdown stays open while the mouse
+   travels through the gap between the nav link and the menu */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -0.75rem;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+}
+
 .dropdown-menu li {
     width: 100%;
 }
@@ -971,6 +982,10 @@ footer p {
         box-shadow: none;
         margin: 0.75rem 0 0;
         padding: 0;
+    }
+
+    .dropdown-menu::before {
+        content: none;
     }
 
     .dropdown-menu a {
