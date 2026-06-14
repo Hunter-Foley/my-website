@@ -89,6 +89,9 @@
             </div>
 
             <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="hidden" name="access_key" value="f7367fa1-455e-48ad-b1bb-8e55b7d99f0a">
+                <input type="hidden" name="subject" value="New Contact Form Submission - HunterFoleyRealEstate.com">
+                <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required>
@@ -102,8 +105,8 @@
                     <input type="tel" id="phone" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="subject">Interest</label>
-                    <select id="subject" name="subject">
+                    <label for="interest">Interest</label>
+                    <select id="interest" name="interest">
                         <option value="">Select...</option>
                         <option value="buying">Buying</option>
                         <option value="selling">Selling</option>

@@ -32,10 +32,36 @@ document.addEventListener('click', function(event) {
 // Form submission
 function handleSubmit(event) {
     event.preventDefault();
+    const form = event.target;
+    const submitBtn = form.querySelector('.form-submit');
+    const originalText = submitBtn.textContent;
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    alert(`Thank you, ${name}! I'll be in touch shortly at ${email}`);
-    event.target.reset();
+
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                alert(`Thank you, ${name}! Your message has been sent. I'll be in touch shortly.`);
+                form.reset();
+            } else {
+                alert('Sorry, something went wrong sending your message. Please try emailing directly instead.');
+            }
+        })
+        .catch(() => {
+            alert('Sorry, something went wrong sending your message. Please try emailing directly instead.');
+        })
+        .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
 }
 
 // Photo gallery: show more/fewer photos
