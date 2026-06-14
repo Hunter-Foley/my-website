@@ -66,14 +66,9 @@
         .logo-circle {
             width: 45px;
             height: 45px;
-            background: var(--accent);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
+            object-fit: cover;
+            border: 2px solid var(--accent);
         }
 
         .logo-text {
@@ -675,7 +670,7 @@
     <header id="header">
         <nav>
             <div class="logo">
-                <div class="logo-circle">HF</div>
+                <img src="images/headshot.png" alt="Hunter Foley" class="logo-circle">
                 <div class="logo-text">
                     <span class="name">HUNTER FOLEY</span>
                     <span class="title">Luxury Real Estate</span>
