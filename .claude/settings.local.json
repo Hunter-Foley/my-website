@@ -49,7 +49,14 @@
       "Bash(npm init *)",
       "Bash(timeout 100 npm install playwright)",
       "Bash(timeout 110 npx playwright install chromium)",
-      "Bash(node screenshot.js)"
+      "Bash(node screenshot.js)",
+      "Bash(file \"Square Agent Profile Picture.png\")",
+      "Bash(identify \"Square Agent Profile Picture.png\")",
+      "Bash(which magick *)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -y -i favicon-48.png favicon.ico)"
     ]
   }
 }
