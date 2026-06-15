@@ -573,6 +573,94 @@ nav a.active::after {
     padding: 1rem 0 2rem;
 }
 
+/* MARKET SNAPSHOTS */
+.market-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.market-card .property-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.market-card-header {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    padding: 1.8rem 2.5rem;
+}
+
+.market-card-header h3 {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.market-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.8rem;
+    margin-bottom: 1.8rem;
+}
+
+.market-stats strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.market-stats span {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.market-highlights {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.market-highlights li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.market-highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.market-cta {
+    align-self: center;
+    margin-top: auto;
+}
+
+.market-data-note {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
 /* LISTING DETAIL PAGE */
 .back-link {
     display: inline-block;
