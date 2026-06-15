@@ -331,6 +331,16 @@ nav a.active::after {
     color: var(--primary);
 }
 
+.cta-button.outline {
+    background: transparent;
+    color: var(--accent);
+}
+
+.cta-button.outline:hover {
+    background: var(--accent);
+    color: var(--primary);
+}
+
 /* PAGE SECTIONS */
 .page {
     padding: 6rem 5%;
@@ -590,6 +600,15 @@ nav a.active::after {
     padding: 1.8rem 2.5rem;
 }
 
+.market-card-header.has-image {
+    background-image: linear-gradient(135deg, rgba(15,31,46,0.75) 0%, rgba(26,58,82,0.55) 100%), var(--header-image);
+    background-size: cover;
+    background-position: center;
+    min-height: 130px;
+    display: flex;
+    align-items: flex-end;
+}
+
 .market-card-header h3 {
     color: white;
     font-size: 1.6rem;
@@ -759,6 +778,46 @@ nav a.active::after {
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+.fact .fact-trend {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #4a8c4a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+.image-caption {
+    text-align: center;
+    color: #999;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 0.75rem 0 2.5rem;
+}
+
+.score-list {
+    list-style: none;
+}
+
+.score-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    color: #555;
+}
+
+.score-list li:last-child {
+    border-bottom: none;
+}
+
+.score-list strong {
+    color: var(--primary);
+    white-space: nowrap;
 }
 
 .listing-body h2,
