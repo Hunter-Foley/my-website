@@ -533,7 +533,8 @@ nav a.active::after {
     z-index: 2;
 }
 
-.property-badge.sold {
+.property-badge.sold,
+.property-badge.open-house {
     background: var(--accent);
     color: var(--primary);
     border-color: var(--accent);
@@ -608,6 +609,19 @@ nav a.active::after {
     color: #888;
     font-size: 1.05rem;
     font-style: italic;
+}
+
+.open-house-notice {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
 }
 
 .listing-price {
